@@ -1,0 +1,83 @@
+<!--pages/mine/mine.wxml-->
+<view class="title">
+  <view class="title_flex">
+    <image src='{{avatarUrl}}'></image>
+    <view wx-if="{{falseName}}">{{nickName}}</view>
+    <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo" class="title_but" wx-if="{{falsebut}}">点击登录账户</button>
+  </view>
+  <view class="order">
+    <van-cell-group>
+      <van-cell title="我的订单" is-link value="查看全部订单" link-type="switchTab" url="/pages/index/index" />
+    </van-cell-group>
+    <view class="orderflex">
+      <view wx:for='{{orderflex}}' wx:key='key'>
+        <image src="{{item.img}}"></image>
+        <view>{{item.text}}</view>
+      </view>
+    </view>
+  </view>
+</view>
+<!-- 我的当前自提点 -->
+<view class="place">
+  <van-cell-group>
+    <van-cell title="我的当前自提点" is-link value="切换" bind:click='address' />
+  </van-cell-group>
+  <view class="placewrap">
+    <view class="placewrap_left van-ellipsis">{{addressinfo.name}}</view>
+    <view class="placewrap_right van-ellipsis">{{addressinfo.address}}</view>
+  </view>
+</view>
+<!-- 我的拼团 -->
+<view class="group">
+  <van-cell-group>
+    <van-cell title="我的拼团" is-link link-type="switchTab" url="/pages/index/index" />
+    <van-cell title="拼团收益" is-link link-type="switchTab" url="/pages/index/index" />
+  </van-cell-group>
+</view>
+<!-- 我的粉丝 -->
+<view class="group">
+  <van-cell-group>
+    <van-cell title="我的粉丝" is-link link-type="switchTab" url="/pages/index/index" value="查看" />
+  </van-cell-group>
+  <view class="group_wrap">
+    <view class="group_left">
+      0
+    </view>
+    <view class="group_right">
+      <view>
+        <view>0</view>
+        <view>今日新增</view>
+      </view>
+      <view>
+        <view>0</view>
+        <view>昨日新增</view>
+      </view>
+    </view>
+  </view>
+  <view class="group_share">
+    <view>分享
+      <text> 6 </text>位新粉丝可升级为分销</view>
+    <button>立即分享</button>
+  </view>
+  <van-cell-group>
+    <van-cell title="分销中心" is-link link-type="switchTab" url="/pages/index/index" />
+  </van-cell-group>
+</view>
+<!-- 更多 -->
+<view class="group">
+  <van-cell-group>
+    <van-cell icon="vip-card" title="优惠卷" is-link link-type="switchTab" url="/pages/index/index" />
+    <van-cell icon="manager" title="申请成为团长" is-link link-type="switchTab" url="/pages/index/index" />
+    <van-cell icon="medal" title="申请成为供应商" is-link link-type="switchTab" url="/pages/index/index" />
+    <van-cell icon="column" title="常见帮助" is-link link-type="switchTab" url="/pages/index/index" />
+    <van-cell icon="service" title="联系客服" is-link bind:click='service' />
+    <van-cell icon="more" title="关于我们" is-link link-type="switchTab" url="/pages/index/index" />
+  </van-cell-group>
+</view>
+<!-- 二维码 -->
+<view class="ma">
+  <image src='/images/gh_02.png'></image>
+  <view>向团长出示二维码提货</view>
+</view>
+<!-- 注 -->
+<view class="footer">野境购物</view>

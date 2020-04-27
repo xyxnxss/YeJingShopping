@@ -1,0 +1,143 @@
+<!--index.wxml-->
+<view class="title">
+  <view class="title_flex">
+    <view bindtap="address" class="van-ellipsis address">{{add}}
+      <text class="title_r">切换</text> >
+    </view>
+    <van-button round icon="search" type="default" size="small" bind:click='search'>搜索</van-button>
+  </view>
+  <!-- swiper -->
+  <swiper class="posts_swiper" indicator-dots="true" autoplay="true" interval="5000" circular='true'>
+    <swiper-item wx:for='{{swiperimg}}' wx:key='key'>
+      <image class="posts_swiper_img" src="{{item.img}}"></image>
+    </swiper-item>
+  </swiper>
+</view>
+<!-- NoticeBar -->
+<view class="notice">
+  <van-icon name="bullhorn-o" />
+  <swiper autoplay="true" interval="2000" vertical='true' circular='true' class="swiper_lo">
+    <swiper-item wx:for='{{swiperlos}}' wx:key='key'>
+      <view class="van-ellipsis swiper_los">{{item.text}}</view>
+    </swiper-item>
+  </swiper>
+</view>
+<view class="tips">
+  <image src="https://ss0.bdstatic.com/70cFvHSh_Q1YnxGkpoWK1HF6hhy/it/u=3405636078,4192323340&fm=26&gp=0.jpg"></image>
+</view>
+<!-- Search -->
+<van-search shape="round" value="{{ value }}" placeholder="搜索商品" />
+<!-- Tab -->
+<van-tabs active="{{ active }}" bind:change="onChange">
+  <van-tab title="正在抢购">
+    <van-tabs active="{{ actives }}" bind:change="onChanges" sticky>
+      <van-tab title="全部">
+        <view class="wrap" wx:for='{{products}}' wx:key='key' data-goods="{{item}}" bindtap="goods">
+          <view class="wrapper">
+            <image src="{{item.img}}"></image>
+            <view class="products">
+              <view class="products_name van-ellipsis">{{item.name}}</view>
+              <view class="products_class van-ellipsis">{{item.classs}}</view>
+              <view class="piece">
+                <text class="piece_left">已售{{item.num}}件</text>
+                <text class="piece_right">仅剩{{item.nums}}件</text>
+              </view>
+              <view class="time">预售时间：{{item.time}}</view>
+              <view class="time">提货时间：{{item.times}}</view>
+              <view class="price_wrap">
+                <text class="price">¥{{item.price}}</text>
+                <text class="prices">¥{{item.prices}}</text>
+              </view>
+            </view>
+          </view>
+        </view>
+      </van-tab>
+      <van-tab title="干果">
+        <view class="empty">
+          <image src='/images/emptybox.png'></image>
+          <view>暂时没有团购</view>
+          <view class="empty_text">我们正在为您准备更优惠的团购</view>
+        </view>
+      </van-tab>
+      <van-tab title="鲜果">
+        <view class="empty">
+          <image src='/images/emptybox.png'></image>
+          <view>暂时没有团购</view>
+          <view class="empty_text">我们正在为您准备更优惠的团购</view>
+        </view>
+      </van-tab>
+      <van-tab title="土特产">
+        <view class="empty">
+          <image src='/images/emptybox.png'></image>
+          <view>暂时没有团购</view>
+          <view class="empty_text">我们正在为您准备更优惠的团购</view>
+        </view>
+      </van-tab>
+      <van-tab title="原产地直供">
+        <view class="empty">
+          <image src='/images/emptybox.png'></image>
+          <view>暂时没有团购</view>
+          <view class="empty_text">我们正在为您准备更优惠的团购</view>
+        </view>
+      </van-tab>
+    </van-tabs>
+  </van-tab>
+  <van-tab title="即将开抢">
+    <van-tabs active="{{ actives }}" bind:change="onChanges" sticky>
+      <van-tab title="全部">
+        <view class="empty">
+          <image src='/images/emptybox.png'></image>
+          <view>暂时没有团购</view>
+          <view class="empty_text">我们正在为您准备更优惠的团购</view>
+        </view>
+      </van-tab>
+      <van-tab title="干果">
+        <view class="empty">
+          <image src='/images/emptybox.png'></image>
+          <view>暂时没有团购</view>
+          <view class="empty_text">我们正在为您准备更优惠的团购</view>
+        </view>
+      </van-tab>
+      <van-tab title="鲜果">
+        <view class="empty">
+          <image src='/images/emptybox.png'></image>
+          <view>暂时没有团购</view>
+          <view class="empty_text">我们正在为您准备更优惠的团购</view>
+        </view>
+      </van-tab>
+      <van-tab title="土特产">
+        <view class="empty">
+          <image src='/images/emptybox.png'></image>
+          <view>暂时没有团购</view>
+          <view class="empty_text">我们正在为您准备更优惠的团购</view>
+        </view>
+      </van-tab>
+      <van-tab title="原产地直供">
+        <view class="empty">
+          <image src='/images/emptybox.png'></image>
+          <view>暂时没有团购</view>
+          <view class="empty_text">我们正在为您准备更优惠的团购</view>
+        </view>
+      </van-tab>
+    </van-tabs>
+  </van-tab>
+</van-tabs>
+<!-- service -->
+<view class="service">
+  <view bindtap="showPopup">
+    <image src="/images/index_share.png"></image>
+    <view>分享</view>
+  </view>
+  <view bindtap="service">
+    <image src="/images/index_service.png"></image>
+    <view>客服</view>
+  </view>
+</view>
+<van-popup show="{{ show }}" bind:close="onClose" position="bottom" custom-style="height: 25%;">
+  <view class="popups_title">分享</view>
+  <van-divider />
+  <view class="popups_flex">
+    <van-button icon="/images/index_wx.png" type="default" open-type="share">好友</van-button>
+    <van-button icon="/images/index_hb.png" type="default" bindtap="invite">海报</van-button>
+  </view>
+</van-popup>

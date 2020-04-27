@@ -1,0 +1,89 @@
+/* pages/order/order.wxss */
+
+page {
+  background-color: rgb(241, 241, 241);
+}
+
+.wrap {
+  margin: 30rpx;
+  padding: 30rpx;
+  background-color: #fff;
+  border-radius: 15rpx;
+  height: 250rpx;
+  font-size: 27rpx;
+}
+
+.wrap_title {
+  display: flex;
+  justify-content: space-between;
+}
+
+.date {
+  color: #f66;
+}
+
+.shul {
+  color: gray;
+}
+
+.wrap_flex {
+  display: flex;
+}
+
+.wrap_flex image {
+  width: 20vw;
+  height: 20vw;
+}
+
+.wrap_flex>view view {
+  margin: 0 0 5rpx 30rpx;
+}
+
+.name {
+  font-size: 30rpx;
+  width: 60vw;
+}
+
+.classs {
+  color: gray;
+  width: 60vw;
+  font-size: 27rpx;
+}
+
+.price {
+  font-size: 30rpx;
+  color: #f66;
+}
+
+.footer {
+  position: fixed;
+  bottom: 0;
+  height: 100rpx;
+  background-color: #fff;
+  width: 100vw;
+}
+
+.footer_flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer_flex>view {
+  margin: auto 30rpx;
+}
+
+.footer_flex>button {
+  width: 300rpx;
+  height: 100rpx;
+  margin: 0;
+  background-color: #f66;
+  color: #fff;
+  border-radius: 0;
+}
+
+.addre {
+  background-color: white;
+  font-size: 25rpx;
+  color: gray;
+  padding: 30rpx;
+}

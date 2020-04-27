@@ -1,0 +1,42 @@
+<!--pages/mycart/mycart.wxml-->
+<view wx-if='{{power}}' class="wrap">
+  <view>
+    <image src='/images/emptybox.png'></image>
+    <view>点击去登录查看购物车商品</view>
+    <button open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">去登录</button>
+  </view>
+</view>
+<!-- 商品 -->
+<view wx-if='{{powers}}'>
+  <van-swipe-cell right-width="{{ 70 }}" wx:for='{{products}}' wx:key='id'>
+    <van-cell-group>
+      <view class="wrapper">
+        <image class="wrapper_image" src="{{item.img}}"></image>
+        <view class="products">
+          <view class="wrapper_ell van-multi-ellipsis--l2">{{item.name}}</view>
+          <view class="productsprices">
+            <view class="products_prices">
+              <view class="products_num">¥
+                <text>{{item.price}}</text>
+              </view>
+              <van-stepper value="{{item.shul}}" min="0" max="100" integer bind:change="onChanges" data-ids='{{item.id}}' />
+            </view>
+          </view>
+        </view>
+      </view>
+    </van-cell-group>
+    <view slot="right" class="group_right" bindtap="shancu" data-idy='{{item.id}}'>
+      <view>删除</view>
+    </view>
+  </van-swipe-cell>
+  <!-- SubmitBar -->
+  <van-submit-bar price="{{money}}" button-text="去结算" button-type='primary' button-square='true' bind:submit="onClickButton">
+    <view slot="tip">
+      我们已为您推荐快递,
+      <text class="tip" bindtap="tips">获取收货地址</text>
+    </view>
+    <view class="van-ellipsis addre">{{addressinfoaddress.name}}</view>
+  </van-submit-bar>
+  <!-- 注 -->
+  <view class="footer">野境购物</view>
+</view>

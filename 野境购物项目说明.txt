@@ -1,0 +1,37 @@
+name:	yejingshopping
+appid:	wx8e81af82324cd969
+不使用云开发
+
+组件库：	vant-weapp	iview-weapp
+
+tabbar:	index//首页
+	mycart//购物车
+	mine//个人中心
+
+页面内边距：	30rpx
+
+颜色：	 rgb(241, 241, 241)	//淡灰背景
+	#ff6666;		//橘粉色字体颜色及深色背景
+	#ed6a0c		//金黄色通知字体颜色
+	gray		//灰色注释
+
+字体大小：	25rpx	小字体
+		27rpx	备注
+		30rpx	默认
+		50rpx	大数字
+		35rpx	价格
+
+搜索框圆角：	40rpx
+图片圆角：	15rpx
+		10rpx
+
+等待时间：	1000
+		500
+
+地址	index	addressinfo
+	我的	addressinfo	addressinfoaddress
+	车	addressinfoaddress
+
+http://img1.imgtn.bdimg.com/it/u=3125720800,1565769745&fm=26&gp=0.jpg
+
+var memberLists = memberList.splice(id, 1);

@@ -1,0 +1,8 @@
+{
+  "usingComponents": {
+    "van-tab": "/miniprogram_npm/@vant/weapp/tab/index",
+    "van-tabs": "/miniprogram_npm/@vant/weapp/tabs/index",
+    "van-divider": "/miniprogram_npm/@vant/weapp/divider/index",
+    "van-field": "/miniprogram_npm/@vant/weapp/field/index"
+  }
+}

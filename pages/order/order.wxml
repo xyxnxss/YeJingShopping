@@ -1,0 +1,66 @@
+<!--pages/order/order.wxml-->
+<van-tabs active="{{ active }}" bind:change="onChange">
+  <van-tab title="社区点自提">
+    <van-cell-group>
+      <van-field value="{{ username }}" clearable label="提货人：" placeholder="提货人" bind:click-icon="onClickIcon" />
+      <van-field value="{{ phone  }}" type="number" label="手机号码：" placeholder="手机号码" bind:click-icon="onClickIcon" />
+    </van-cell-group>
+    <view class="addre">
+      <view>站长信息：{{addressinfoaddress.name}}</view>
+      <view>提货地点：{{addressinfoaddress.address}}</view>
+    </view>
+  </van-tab>
+  <van-tab title="团长配送">
+    <van-cell-group>
+      <van-field value="{{ username }}" clearable label="提货人：" placeholder="提货人" bind:click-icon="onClickIcon" />
+      <van-field value="{{ phone  }}" type="number" label="手机号码：" placeholder="手机号码" bind:click-icon="onClickIcon" />
+      <van-field value="{{ address }}" clearable label="所在位置：" placeholder="选择位置" bind:click-icon="onClickIcon" />
+      <van-field value="{{ addressed }}" clearable label="楼号门牌：" placeholder="例如：A座106室" bind:click-icon="onClickIcon" />
+    </van-cell-group>
+    <view class="addre">
+      <view>站长信息：{{addressinfoaddress.name}}</view>
+      <view>提货地点：{{addressinfoaddress.address}}</view>
+    </view>
+  </van-tab>
+  <van-tab title="立即配送">
+    <van-cell-group>
+      <van-field value="{{ username }}" clearable label="提货人：" placeholder="提货人" bind:click-icon="onClickIcon" />
+      <van-field value="{{ phone  }}" type="number" label="手机号码：" placeholder="手机号码" bind:click-icon="onClickIcon" />
+      <van-field value="{{ address }}" clearable label="所在地区：" placeholder="选择地址" bind:click-icon="onClickIcon" />
+      <van-field value="{{ addressed }}" clearable label="详细地址：" placeholder="详细地址" bind:click-icon="onClickIcon" />
+    </van-cell-group>
+    <view class="addre">
+      <view>站长信息：{{addressinfoaddress.name}}</view>
+      <view>提货地点：{{addressinfoaddress.address}}</view>
+    </view>
+  </van-tab>
+</van-tabs>
+<view class="wrap">
+  <view class="wrap_title">
+    <text class="date" wx:if='{{dates}}'>{{date}}</text>
+    <text class="shul">{{goodsdata.shul}}件商品</text>
+  </view>
+  <van-divider />
+  <view class="wrap_flex">
+    <image src="{{goodsdata.img}}"></image>
+    <view>
+      <view class="name van-ellipsis">{{goodsdata.name}}</view>
+      <view class="classs van-ellipsis">{{goodsdata.classs}}</view>
+      <view class="classs">¥{{goodsdata.price}}×{{goodsdata.shul}}</view>
+      <view>小计：
+        <text class="price">¥{{price}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="footer">
+  <view class="footer_flex">
+    <view>
+      <view>合计：
+        <text class="price">¥{{price}}</text>
+      </view>
+      <view class="classs">总额：¥{{price}}</view>
+    </view>
+    <button bindtap="but">立即支付</button>
+  </view>
+</view>

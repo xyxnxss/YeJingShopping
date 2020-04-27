@@ -1,0 +1,64 @@
+<!--pages/goods/goods.wxml-->
+<swiper class="posts_swiper" indicator-dots="true" autoplay="true" interval="5000" circular='true'>
+  <swiper-item wx:for='{{swiperimg}}' wx:key='key'>
+    <image class="posts_swiper_img" src="{{item.img}}"></image>
+  </swiper-item>
+</swiper>
+<view class="wrap">
+  <view class="wrapper">
+    <image src="{{goodsdata.img}}"></image>
+    <view class="products">
+      <view class="products_name van-ellipsis">{{goodsdata.name}}</view>
+      <view class="products_class van-ellipsis">{{goodsdata.classs}}</view>
+      <view class="piece">
+        <text class="piece_left">已售{{goodsdata.num}}件</text>
+        <text class="piece_right">仅剩{{goodsdata.nums}}件</text>
+      </view>
+      <view class="time">预售时间：{{goodsdata.time}}</view>
+      <view class="time">提货时间：{{goodsdata.times}}</view>
+      <view class="price_wrap">
+        <text class="price">¥{{goodsdata.price}}</text>
+        <text class="prices">¥{{goodsdata.prices}}</text>
+      </view>
+    </view>
+  </view>
+</view>
+<view class="place">
+  <van-cell-group>
+    <van-cell title="我的当前自提点" is-link value="切换" bind:click='address' />
+  </van-cell-group>
+  <view class="placewrap">
+    <view class="placewrap_left van-ellipsis">{{addressinfo.name}}</view>
+    <text>取货地址：</text>
+    <text class="placewrap_right van-ellipsis">{{addressinfo.address}}</text>
+  </view>
+</view>
+<view class="title">—商品详情—</view>
+<view class="details" wx:for='{{details}}' wx:key='key'>
+  <image src="{{item}}"></image>
+</view>
+<van-goods-action>
+  <van-goods-action-icon icon="wap-home-o" text="回首页" link-type='switchTab' url='/pages/index/index' />
+  <van-goods-action-icon icon="shopping-cart-o" text="购物车" link-type='switchTab' url='/pages/mycart/mycart' />
+  <van-goods-action-button text="加入购物车" type="warning" bind:click="onClickButton" />
+  <van-goods-action-button text="立即购买" bind:click="onClickButtons" />
+</van-goods-action>
+<van-popup show="{{ show }}" bind:close="onClose" position="bottom"
+  custom-style="height: 35%;" round>
+  <view class="wrappers">
+      <image src="{{goodsdata.img}}"></image>
+      <view class="products">
+        <view class="wrapper_ell van-multi-ellipsis--l2">{{goodsdata.name}}</view>
+        <view class="products_class van-ellipsis">{{goodsdata.classs}}</view>
+        <view class="productsprices">
+          <view class="products_prices">
+            <view class="products_num">¥
+              <text>{{goodsdata.price}}</text>
+            </view>
+            <van-stepper value="{{goodsdata.shul}}" min="1" max="100" integer bind:change="onChanges"/>
+          </view>
+        </view>
+      </view>
+    </view>
+    <van-button type="primary" block color="#ff6666" class="popupbut" bindtap="popupbut">确定</van-button>
+  </van-popup>

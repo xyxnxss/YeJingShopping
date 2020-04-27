@@ -1,0 +1,2 @@
+<!--pages/poster/poster.wxml-->
+<canvas class="can" canvas-id="mycan" bindtap="previewImage" data-src="{{img}}" />
